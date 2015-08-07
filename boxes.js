@@ -1,6 +1,6 @@
 $(document).ready(function(){
   console.log("Ready for DOM manipulation");
-  // 1. Find the secretBox on the page. Set the background color to white.  Add an h1 tag that says, "secret box!" FINISHED
+  1. Find the secretBox on the page. Set the background color to white.  Add an h1 tag that says, "secret box!" FINISHED
   $('#secretBox').css({ "background-color": "white"}).html("<h1>secret box</h1>").css("color", "green");
 
   // 2. Find all child divs of the first row.  Set the class for each div to boxType3. FINISHED
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   // 6. Get all divs inside the container that are not row divs and are not the secret box div.  Set the width of the divs to 2 pixels.
 
-  // $(".row .box").not("#secretBox").css("width", "2px");
+  $(".row .box").not("#secretBox").css("width", "2px");
 
 // 1. Add an on click handler to the container div.  Console log the x and y position of the click.
   $("#container").on("click", function(event){
@@ -43,11 +43,12 @@ $(document).ready(function(){
   });
 // 4. Write a click handler __on the conatainer div__.  The click handler should turn the container background to black and the background of the original div that was clicked to white.  If the user original div that was clicked happened to be the container div, change the background of the container div to lime green.  You __should not__ use any selectors for this exercise.  You can do it completely with what is given to you in the event callback.
   $("#container").on("click", function(event) {
-    if ($(this) === $(event.target)) {
+    if ($(event.target).hasClass("box")){
+      // console.log("test");
       $(this).css("background", "black");
       $(event.target).css("background", "white");
     } else {
-      $(this).css("background", "green");
+      $(this).css("background", "#32cd32");
     }
   });
 });
